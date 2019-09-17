@@ -3,34 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Categoria;
+use App\ContasPagar;
 
-// @TODO: limitar para apenas usuário admin poder adicionar, alterar ou deletar, mas qualquer um, mesmo não autenticado pode visualizar
-class CategoriaController extends Controller
+class ContasPagarController extends Controller
 {
   public function index() {
-    return Categoria::all();
+    return ContasPagar::all();
   }
 
   public function store(Request $request) {
-    $categoria = new Categoria($request->all());
-    $categoria->save();
+    $contasPagar = new ContasPagar($request->all());
+    $contasPagar->save();
 
-    return response()->json($categoria->toArray(), 200);
+    return response()->json($contasPagar->toArray(), 200);
   }
 
-  public function show(Categoria $categoria) {
-    return response()->json($categoria);
+  public function show(ContasPagar $contasPagar) {
+    return response()->json($contasPagar);
   }
 
-  public function update(Request $request, Categoria $categoria) {
-    $categoria->update($request->all());
+  public function update(Request $request, ContasPagar $contasPagar) {
+    $contasPagar->update($request->all());
 
-    return response()->json($categoria, 200);
+    return response()->json($contasPagar, 200);
   }
 
-  public function delete(Categoria $categoria) {
-    $categoria->delete();
+  public function delete(ContasPagar $contasPagar) {
+    $contasPagar->delete();
 
     return response('', 204);
   }

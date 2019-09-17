@@ -8,6 +8,7 @@ class ContasPagar extends Model
 {
     use \App\Traits\UsesUuid;
 
+    protected $table = 'contasPagar';
     protected $fillable = [
       'nome','status', 'data', 'datapagamento', 'valor', 'valorpago'
     ];
